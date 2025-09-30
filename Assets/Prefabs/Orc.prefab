@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc
       objectReference: {fileID: 0}
+    - target: {fileID: 4840770540405132857, guid: c32dfe4156fe72140b8a98c45b7f1a7c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 58380f3fc88ca844792b1e9372732776, type: 2}
     - target: {fileID: 8579297406682107249, guid: c32dfe4156fe72140b8a98c45b7f1a7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
@@ -52,8 +56,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7844489437662578160, guid: c32dfe4156fe72140b8a98c45b7f1a7c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2848027128811979529, guid: c32dfe4156fe72140b8a98c45b7f1a7c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2914822192654072774}
   m_SourcePrefab: {fileID: 100100000, guid: c32dfe4156fe72140b8a98c45b7f1a7c, type: 3}
+--- !u!1 &1117280347719891629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2848027128811979529, guid: c32dfe4156fe72140b8a98c45b7f1a7c, type: 3}
+  m_PrefabInstance: {fileID: 2884372059052177828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2914822192654072774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117280347719891629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b709e0d8fa70c224b965b577d2232951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

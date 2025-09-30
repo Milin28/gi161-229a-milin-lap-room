@@ -6,16 +6,92 @@ public class Main : MonoBehaviour
     //private List<Monster> monsters = new<Monster>();
     public Hero hero;
     public List<Monster> monstersPrefabs; // เก็บหลายตัว
+    public List<Weapon> weaponsPrefabs;
 
     public Monster currentMonster; //เก็บตัวเดียว
     public List<Monster> monsters = new List<Monster>();
+    public List<Weapon> weapons = new List<Weapon>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
 
-    {  
-        
+    {
+        Weapon Sword = Instantiate(weaponsPrefabs[0], new Vector3(-3,-1,0), Quaternion.identity);
+        Weapon dagger = Instantiate(weaponsPrefabs[1], new Vector3(-3, -2, 0), Quaternion.identity);
+        Weapon Claws = Instantiate(weaponsPrefabs[2], new Vector3(-3, -3, 0), Quaternion.identity);
+        Weapon axe = Instantiate(weaponsPrefabs[3], new Vector3(-3, -4, 0), Quaternion.identity);
+
+        Sword.InitWeapon("Sword", 5);
+        dagger.InitWeapon("Dagger", 3);
+        Claws.InitWeapon("Claws", 4);
+        axe.InitWeapon("Axe", 6);
+
+
+
+
         hero.Init("The Knight", 20, 10);
         hero.ShowStat();
+
+
+        /*
+        SpawnMonter(MonsterType.Dragon);
+        SpawnMonter(MonsterType.Goblin);
+        SpawnMonter(MonsterType.Orc);
+        */
+
+        Monster dragonObj = Instantiate(monstersPrefabs[0]);
+        Dragon dragon1 = dragonObj.GetComponent<Dragon>();
+        if (dragon1 != null)
+        {
+            dragon1.InitlizedDragon("Gorash Dragon");
+        }
+        monsters.Add(dragonObj);
+
+        Monster goblinObj = Instantiate(monstersPrefabs[1]);
+        Goblin goblin1 = goblinObj.GetComponent<Goblin>();
+        if (goblin1 != null)
+        {
+            goblin1.InitlizedGoblin("Smolderfang Goblin");
+        }
+        monsters.Add(goblinObj);
+        Monster orcObj = Instantiate(monstersPrefabs[2]);
+        Orc orc1 = orcObj.GetComponent<Orc>();
+        if (orc1 != null)
+        {
+            orc1.InitlizedOrc("Org Orc");
+        }
+
+
+
+        //show stsat
+        foreach (var m in monsters)
+        {
+            m.ShowStat();
+            m.Roar();
+        }
+        Debug.Log("----- The Battle Begin -----");
+        currentMonster = monsters[0];
+        hero.Attack(currentMonster, 10);
+        currentMonster.ShowStat();
+        currentMonster.Attack(hero);
+
+        currentMonster.Attack(currentMonster, 5);
+        //monster defeated- hero earn  loot golds
+        Debug.Log($"Monster {currentMonster.Name} is defeated!");
+        hero.EarnGold(currentMonster.DropReward());
+        hero.ShowStat();
+
+        Debug.Log("----- Battle with Weapon -----");
+        hero.EquipWeapon(Sword);
+        goblin1.EquipWeapon(dagger);
+        dragon1.EquipWeapon(Claws);
+        orc1.EquipWeapon(axe);
+
+        hero.Attack(goblin1, hero.EquippedWeapon);
+        foreach (Monster mon in monsters)
+        { 
+            mon.Attack(hero, mon.EquippedWeapon);
+        }
+        /*
         //------Dragon------
         //Spawn Monster gameobject from prefab
         currentMonster = Instantiate(monstersPrefabs[0]);
@@ -42,17 +118,17 @@ public class Main : MonoBehaviour
         {
             m.ShowStat();
         }
+        Debug.Log("----- The Battle Begin -----");
+        currentMonster = monsters[0];
+        hero.Attack(currentMonster ,10);
+        currentMonster.ShowStat();
+        currentMonster.Attack(hero);
 
-
-
-
-
-
-
-
-
-
-
+        currentMonster.Attack(currentMonster, 5);
+        //monster defeated- hero earn  loot golds
+        Debug.Log($"Monster {currentMonster.Name} is defeated!");
+        hero.EarnGold(currentMonster.DropReward());
+        hero.ShowStat();
 
 
 
@@ -104,5 +180,12 @@ public class Main : MonoBehaviour
         */
     }
 
+    /*public void SpawnMonter(MonsterType monsterType)
+    {
+        Monster monterPrefab = monstersPrefabs[(int)monsterType];
+        Monster monster = Instantiate(monterPrefab);
+        monster.Init(monsterType);
+        monsters.Add(monster);
 
+    }*/
 }

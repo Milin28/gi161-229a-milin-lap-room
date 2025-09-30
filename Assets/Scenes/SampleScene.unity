@@ -462,10 +462,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hero: {fileID: 501885759}
   monstersPrefabs:
-  - {fileID: 1842999157511489800, guid: 49dc9587daea5cf4c9bfcc72c92eb2d9, type: 3}
-  - {fileID: 4055949596706105986, guid: a9613561041dae84ba9bc7b7e7f03b84, type: 3}
-  - {fileID: 4961384110622997588, guid: 4f640ec47bab53d4ba26c1bb80559bb4, type: 3}
+  - {fileID: -1041231621483691704, guid: 49dc9587daea5cf4c9bfcc72c92eb2d9, type: 3}
+  - {fileID: -2457882124159064413, guid: a9613561041dae84ba9bc7b7e7f03b84, type: 3}
+  - {fileID: -2914822192654072774, guid: 4f640ec47bab53d4ba26c1bb80559bb4, type: 3}
+  weaponsPrefabs:
+  - {fileID: 579577617858801731, guid: 0044588afbb50134fb16d832a4982669, type: 3}
+  - {fileID: 7149519673818772851, guid: 10d218c38abc8694eb1dca0923bd3802, type: 3}
+  - {fileID: 1294475328873098980, guid: b4f04173c37f7ee42be057351acfe3ac, type: 3}
+  - {fileID: 8708809251283938517, guid: 7e53dbbd2f5ef5344b445351cfc419c2, type: 3}
   currentMonster: {fileID: 0}
+  monsters: []
+  weapons: []
 --- !u!4 &1587620584
 Transform:
   m_ObjectHideFlags: 0
